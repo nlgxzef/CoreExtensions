@@ -445,6 +445,12 @@
             <returns>Value of the <see cref="T:System.Enum"/> passed. If value could not be parsed, 
             or if the type passed is not Enum, exception might be thrown.</returns>
         </member>
+        <member name="M:CoreExtensions.IO.BinaryReaderX.ReadNullTermUTF8ByteArray(System.IO.BinaryReader)">
+            <summary>
+            Reads a C-Style null-terminated string that using UTF8 encoding.
+            </summary>
+            <returns>String with UTF8 style encoding.</returns>
+        </member>
         <member name="M:CoreExtensions.IO.BinaryReaderX.ReadNullTermUTF8(System.IO.BinaryReader)">
             <summary>
             Reads a C-Style null-terminated string that using UTF8 encoding.
@@ -547,6 +553,13 @@
             <typeparam name="TypeID">Type of the <see cref="T:System.Enum"/> to read.</typeparam>
             <param name="bw"></param>
             <param name="value"><see cref="T:System.Enum"/> value to write.</param>
+        </member>
+        <member name="M:CoreExtensions.IO.BinaryWriterX.WriteNullTermUTF8ByteArray(System.IO.BinaryWriter,System.Byte[])">
+            <summary>
+            Writes a C-Style null-terminated byte array that using UTF8 encoding.
+            </summary>
+            <param name="bw"></param>
+            <param name="value">Byte array value to write.</param>
         </member>
         <member name="M:CoreExtensions.IO.BinaryWriterX.WriteNullTermUTF8(System.IO.BinaryWriter,System.String)">
             <summary>

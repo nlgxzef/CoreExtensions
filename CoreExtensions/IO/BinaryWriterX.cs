@@ -79,12 +79,22 @@ namespace CoreExtensions.IO
 			}
 		}
 
-		/// <summary>
-		/// Writes a C-Style null-terminated string that using UTF8 encoding.
-		/// </summary>
-		/// <param name="bw"></param>
-		/// <param name="value">String value to write.</param>
-		public static void WriteNullTermUTF8(this BinaryWriter bw, string value)
+        /// <summary>
+        /// Writes a C-Style null-terminated byte array that using UTF8 encoding.
+        /// </summary>
+        /// <param name="bw"></param>
+        /// <param name="value">Byte array value to write.</param>
+        public static void WriteNullTermUTF8ByteArray(this BinaryWriter bw, byte[] value)
+        {
+            for (int a1 = 0; a1 < value.Length; ++a1) bw.Write(value[a1]);
+        }
+
+        /// <summary>
+        /// Writes a C-Style null-terminated string that using UTF8 encoding.
+        /// </summary>
+        /// <param name="bw"></param>
+        /// <param name="value">String value to write.</param>
+        public static void WriteNullTermUTF8(this BinaryWriter bw, string value)
 		{
 			if (!string.IsNullOrEmpty(value))
 			{

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -152,6 +153,18 @@ namespace CoreExtensions.IO
                 default:
                     throw new InvalidCastException($"Unable to read enum of type {t}.");
             }
+        }
+
+        /// <summary>
+        /// Reads a C-Style null-terminated string that using UTF8 encoding.
+        /// </summary>
+        /// <returns>String with UTF8 style encoding.</returns>
+        public static byte[] ReadNullTermUTF8ByteArray(this BinaryReader br)
+        {
+            var result = new List<byte>();
+            byte b;
+            while ((b = br.ReadByte()) != 0) result.Add(b);
+            return result.ToArray();
         }
 
         /// <summary>
